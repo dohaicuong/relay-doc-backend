@@ -1,7 +1,7 @@
 {
 	"scripts": {
-		"start": "ts-node src/index.ts",
-		"dev": "node-dev src/index.ts",
+		"start": "ts-node api/index.ts",
+		"dev": "node-dev api/index.ts",
 		"build:prisma": "npx prisma generate",
 		"build": "pnpm build:prisma && tsc"
 	},
