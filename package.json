@@ -2,7 +2,8 @@
 	"scripts": {
 		"start": "ts-node src/index.ts",
 		"dev": "node-dev src/index.ts",
-		"build": "tsc"
+		"build:prisma": "npx prisma generate",
+		"build": "pnpm build:prisma && tsc"
 	},
 	"dependencies": {
 		"@graphql-yoga/node": "^2.13.13",
