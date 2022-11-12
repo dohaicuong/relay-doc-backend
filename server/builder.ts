@@ -2,7 +2,7 @@ import SchemaBuilder from '@pothos/core'
 
 import ErrorsPlugin from '@pothos/plugin-errors'
 
-import RelayPlugin, { GlobalIDShape } from '@pothos/plugin-relay'
+import RelayPlugin from '@pothos/plugin-relay'
 
 import PrismaPlugin from '@pothos/plugin-prisma'
 import type PrismaTypes from '@pothos/plugin-prisma/generated'
