@@ -55,7 +55,6 @@ builder.relayMutationField('taskDone',
           where: { id: input.id.id },
           data: { isDone: true }
         })
-
         return task
       }
       catch(e) {
@@ -84,12 +83,13 @@ builder.relayMutationField('taskUndone',
   },
   {
     errors: { types: [NotFoundError] },
-    resolve: (_, { input }) => {
+    resolve: async (_, { input }) => {
       try {
-        return prisma.task.update({
+        const task = await prisma.task.update({
           where: { id: input.id.id },
           data: { isDone: false }
         })
+        return task
       }
       catch(e) {
         if (e instanceof Prisma.PrismaClientKnownRequestError) {
@@ -117,9 +117,12 @@ builder.relayMutationField('taskDelete',
   },
   {
     errors: { types: [NotFoundError] },
-    resolve: (_, { input }) => {
+    resolve: async (_, { input }) => {
       try {
-        return prisma.task.delete({ where: { id: input.id.id } })
+        const task = await prisma.task.delete({
+          where: { id: input.id.id },
+        })
+        return task
       }
       catch(e) {
         if (e instanceof Prisma.PrismaClientKnownRequestError) {
